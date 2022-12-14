@@ -1,0 +1,38 @@
+Size: 3
+good_chance: 52
+inspected_chance: 66
+Workers12 is ready to work! size: 3
+Workers12 are choosing pin for 1 sec(index 0)
+Worker3 is ready to work! size: 3
+Worker3 is choosing Pin №0 for 2 sec
+Workers12 are going to work with Pin №0
+Workers12 set condition of Pin №0 to 1
+Workers12 done their job with Pin №0
+Workers12 are choosing pin for 5 sec(index 1)
+Worker3 is going to work with Pin №0
+Worker3 says this is a bad Pin(№0)
+Worker3 done his job with Pin №0
+Worker3 is choosing Pin №1 for 1 sec
+Worker3 is going to work with Pin №1
+Worker3 ahead of Workers12. Waiting for them...
+Worker3 is choosing Pin №1 for 2 sec
+Worker3 is going to work with Pin №1
+Worker3 ahead of Workers12. Waiting for them...
+Worker3 is choosing Pin №1 for 1 sec
+Workers12 are going to work with Pin №1
+Workers12 set condition of Pin №1 to 0
+Workers12 done their job with Pin №1
+Workers12 are choosing pin for 4 sec(index 2)
+Worker3 is going to work with Pin №1
+Worker3 says this is a broken Pin(№1)
+Worker3 done his job with Pin №1
+Worker3 is choosing Pin №2 for 4 sec
+Workers12 are going to work with Pin №2
+Workers12 set condition of Pin №2 to 0
+Workers12 done their job with Pin №2
+Workers12 end their job
+Worker3 is going to work with Pin №2
+Worker3 says this is a broken Pin(№2)
+Worker3 done his job with Pin №2
+Workers3 end his job
+
