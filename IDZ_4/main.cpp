@@ -43,7 +43,7 @@ FILE *output = stdout;
 static Pin **array;
 pthread_mutex_t mutex;
 
-// "производитель", он же - пара первого и второго рабочих
+// "Производитель", он же - пара первого и второго рабочих
 void *workers12(void *param) {
     fprintf(output, "Workers12 is ready to work! size: %d\n", size);
     if (output != stdout) {
@@ -58,6 +58,7 @@ void *workers12(void *param) {
         if (output != stdout) {
             fprintf(stdout, "Workers12 are choosing pin for %d sec(index %d)\n", choosing_time, i);
         }
+        // "Засыпаем" - поиск булавки требует некоторого времени
         sleep(choosing_time);
         fprintf(output, "Workers12 are going to work with Pin №%d\n", i);
         if (output != stdout) {
@@ -100,7 +101,7 @@ void *workers12(void *param) {
     return nullptr;
 }
 
-// "читатель" - он же - третий рабочий
+// "Читатель" - он же - третий рабочий
 void *worker3(void *param) {
     fprintf(output, "Worker3 is ready to work! size: %d\n", size);
     if (output != stdout) {
@@ -116,6 +117,7 @@ void *worker3(void *param) {
         if (output != stdout) {
             fprintf(stdout, "Worker3 is choosing Pin №%d for %d sec\n", i, choosing_time);
         }
+        // "Засыпаем" - поиск булавки требует некоторого времени
         sleep(choosing_time);
         fprintf(output, "Worker3 is going to work with Pin №%d\n", i);
         if (output != stdout) {
@@ -174,6 +176,8 @@ void *worker3(void *param) {
 }
 
 int scanChance(const std::string& text, int left_border, int right_border) {
+    // Фукнкция заставляет пользователя вводить значения доо тех пор, пока 
+    // введенное значение не будет входить в диапазон (left_border, right_border]
     std::string str;
     int result;
     while (true) {
@@ -193,6 +197,9 @@ int scanChance(const std::string& text, int left_border, int right_border) {
 }
 
 void checker() {
+    // Проверка количества булавок, шанса взять не кривую булавку 
+    // и шанса прохождения обработанной булавки контроля качества
+    // на удовлетворение условиям
     if (!(0 < size && 100000 >= size)) {
         printf("The number of pins must be in the range from 1 to 100000\n");
         if (output != stdout) {
@@ -240,7 +247,7 @@ void file_input(int argc, char *argv[]) {
         }
         // Очищаем файл, куда дальше будет вывод
         fclose(output_file);
-        // открываем на ввод
+        // Открываем на ввод
         output = fopen(argv[3], "a");
         checker();
     } else {
@@ -250,7 +257,6 @@ void file_input(int argc, char *argv[]) {
 
 void arg_input(int argc, char *argv[]) {
     if (argc == 2) {
-        // try {
         size = atoi(argv[1]);
         if ((0 > size || 100000 <= size)) {
             printf("The number of pins should be in the range from 1 to 100000\n");
